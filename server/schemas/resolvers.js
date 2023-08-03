@@ -3,6 +3,7 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    // Find a user by ID
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
@@ -52,3 +53,5 @@ const resolvers = {
     },
   },
 };
+
+module.exports = resolvers;
