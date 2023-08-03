@@ -16,6 +16,11 @@ const typeDefs = `
         link: String
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     input bookInfo {
         author: [String]
         description: String
