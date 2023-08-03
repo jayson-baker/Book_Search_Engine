@@ -14,5 +14,10 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
+    "apollo-server-express": "^2.15.0"
   }
 }

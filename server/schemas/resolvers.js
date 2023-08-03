@@ -1,10 +1,10 @@
-const { Book, User } = require("../models");
+const { User } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     // Find a user by ID
-    user: async (parent, { userId }) => {
+    User: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
   },
