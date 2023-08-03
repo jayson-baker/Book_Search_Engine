@@ -40,5 +40,15 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    deleteBook: async (parent, { book }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          { $pull: { savedBooks: book } },
+          { new: true, runValidators: true }
+        );
+      }
+      throw AuthenticationError;
+    },
   },
 };
