@@ -30,5 +30,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    saveBook: async (parent, { userId, book }, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          { $addToSet: { savedBooks: book } },
+          { new: true, runValidators: true }
+        );
+      }
+      throw AuthenticationError;
+    },
   },
 };
